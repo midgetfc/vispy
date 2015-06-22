@@ -1,0 +1,18 @@
+Notes :
+
+-  vispy.visuals.volume.py : l628, def bounds(self, mode, axis):
+   Le paramètre mode n'est pas utilisé.
+   le prototype de la fonction est défini dans la classe de base Visual,
+   mais retourne None. Devrait-on lever NotImplementedException ?
+
+-  vispy.visuals.volume.py : l456, def set_data(self, vol, clim=None):
+   Il faudrait faire un test pour ne pas avoir de division par zéro si
+   le volume est uniforme, tout à la même valeur. Dans ce cas de figure,
+   on a self._clim[1] == self._clim[0].
+
+-  L'exemple checkerboard ne donne pas tout à fait le résultat attendu:
+   voir checkerboard-initial-mip.png, checkerboard-initial-translucent.png,
+   checkerboard-initial-additive.png, checkerboard-initial-iso.png,
+   pour un échiquier 10x5x5.
+
+

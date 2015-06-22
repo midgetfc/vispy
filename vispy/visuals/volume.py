@@ -566,9 +566,15 @@ class VolumeVisual(Visual):
         
         # Get corner coordinates. The -0.5 offset is to center
         # pixels/voxels. This works correctly for anisotropic data.
+        print('x dim = {0}'.format(shape[2]))
+        print('y dim = {0}'.format(shape[1]))
+        print('z dim = {0}'.format(shape[0]))
         x0, x1 = -0.5, shape[2] - 0.5
         y0, y1 = -0.5, shape[1] - 0.5
         z0, z1 = -0.5, shape[0] - 0.5
+#        x0, x1 = 0., shape[2]
+#        y0, y1 = 0., shape[1]
+#        z0, z1 = 0., shape[0]
 
         data = np.empty(8, dtype=[
             ('a_position', np.float32, 3),
